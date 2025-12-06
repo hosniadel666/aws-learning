@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-    BUCKET_NAME: "my-demo-tf-bucket"
-    AWS_REGION: "us-east-1"
 
 phases:
   install:
