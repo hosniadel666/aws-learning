@@ -1,6 +1,5 @@
 version: 0.2
 
-
 phases:
   install:
     commands:
@@ -8,18 +7,22 @@ phases:
       - curl -O https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip
       - unzip terraform_1.5.7_linux_amd64.zip
       - mv terraform /usr/local/bin/
+      - pip install --upgrade awscli
 
   build:
     commands:
-      -terraform destroy
+      - echo "Initializing Terraform..."
       - terraform init
+
+      - echo "Planning Terraform..."
       - terraform plan -input=false \
           -var="bucket_name=$BUCKET_NAME" \
           -var="region=$AWS_REGION"
+
+      - echo "Applying Terraform..."
       - terraform apply -auto-approve \
           -var="bucket_name=$BUCKET_NAME" \
           -var="region=$AWS_REGION"
-  build:
-    commands:
-      - echo "Uploading sample_data folder to S3..."
+
+      - echo "Uploading sample data..."
       - aws s3 cp sample_data/ s3://$BUCKET_NAME/ --recursive
