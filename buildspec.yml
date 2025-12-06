@@ -1,5 +1,8 @@
 version: 0.2
-
+env:
+  variables:
+    BUCKET_NAME: "my-demo-bucket-hosniadel"
+    AWS_REGION : "us-east-1"
 phases:
   install:
     commands:
