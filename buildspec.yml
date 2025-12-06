@@ -15,14 +15,10 @@ phases:
       - terraform init
 
       - echo "Planning Terraform..."
-      - terraform plan -input=false \
-          -var="bucket_name=$BUCKET_NAME" \
-          -var="region=$AWS_REGION"
+      - terraform plan -input=false -var="bucket_name=$BUCKET_NAME" -var="region=$AWS_REGION"
 
       - echo "Applying Terraform..."
-      - terraform apply -auto-approve \
-          -var="bucket_name=$BUCKET_NAME" \
-          -var="region=$AWS_REGION"
+      - terraform apply -auto-approve -var="bucket_name=$BUCKET_NAME" -var="region=$AWS_REGION"
 
       - echo "Uploading sample data..."
       - aws s3 cp sample_data/ s3://$BUCKET_NAME/ --recursive
