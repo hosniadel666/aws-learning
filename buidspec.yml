@@ -11,6 +11,7 @@ phases:
 
   build:
     commands:
+      -terraform destroy
       - terraform init
       - terraform plan -input=false \
           -var="bucket_name=$BUCKET_NAME" \
@@ -18,3 +19,7 @@ phases:
       - terraform apply -auto-approve \
           -var="bucket_name=$BUCKET_NAME" \
           -var="region=$AWS_REGION"
+  build:
+    commands:
+      - echo "Uploading sample_data folder to S3..."
+      - aws s3 cp sample_data/ s3://$BUCKET_NAME/ --recursive
