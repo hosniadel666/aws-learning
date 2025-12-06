@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Terraform...
+      - curl -O https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_amd64.zip
+      - unzip terraform_1.7.5_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+  pre_build:
+    commands:
+      - terraform init
+  build:
+    commands:
+      - echo Destroying Terraform Infrastructure...
+      - terraform destroy -auto-approve \
+          -var="bucket_name=my-demo-bucket-project" \
+          -var="region=us-east-1"
+

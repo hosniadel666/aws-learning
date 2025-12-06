@@ -1,0 +1,44 @@
+[
+  {
+    "customer_id": "CUST-100",
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "tier": "gold",
+    "lifetime_value": 5420.50
+  },
+  {
+    "customer_id": "CUST-101",
+    "name": "Bob Smith",
+    "email": "bob.smith@company.com",
+    "tier": "silver",
+    "lifetime_value": 2150.75
+  },
+  {
+    "customer_id": "CUST-102",
+    "name": "Carol Davis",
+    "email": "invalid-email-format",
+    "tier": "bronze",
+    "lifetime_value": 450.00
+  },
+  {
+    "customer_id": "CUST-103",
+    "name": "David Wilson",
+    "email": "david.wilson@email.com",
+    "tier": "silver",
+    "lifetime_value": 1890.25
+  },
+  {
+    "customer_id": "CUST-104",
+    "name": "Emma Taylor",
+    "email": "emma@shop.example.com",
+    "tier": "gold",
+    "lifetime_value": 7320.00
+  },
+  {
+    "customer_id": "CUST-105",
+    "name": "Frank Martinez",
+    "email": "frank.martinez99@mail.com",
+    "tier": "bronze",
+    "lifetime_value": 125.50
+  }
+]
